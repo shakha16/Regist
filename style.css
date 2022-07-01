@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+body {
+    background-color: white;
+}
+.alll{
+    margin-left: 780px;
+}
+
+.header_one {
+    left: 500px;
+    color: black;
+    font-weight: bold;
+    font-size: 44px;
+}
+
+.header_two {
+    color: black;
+    font-weight: bold;
+}
+
+.header_t {
+    color: black;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.father {
+    margin: 0 550px;
+    width: 750px;
+    height: 650px;
+    display: flex;
+    margin-top: 50px;
+    border: 5px dashed grey;
+    margin-left: 500px;
+}
+.left {
+    position: relative;
+    margin-left: 30px;
+}
+
+.right {
+    background-color: white;
+    padding-left: 63px;
+}
+
+p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+span {
+    color: white;
+}
+
+.span_two {
+    color: red;
+}
+
+input {
+    height: 40px;
+    width: 277px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: #949494 1px solid;
+    font-weight: bold;
+    font-size: 35px;
+    Padding: 20px, 0px, 20px, 12px
+}
+
+button {
+    margin-top: 5px;
+    margin-left: 800px;
+    height: 59px;
+    width: 277px;
+    left: 725px;
+    top: 0px;
+    border-radius: 4px;
+    padding: 20px, 12px, 20px, 12px;
+    color: white;
+    background-color: blue;
+    border: 2px solid rgb(0, 0, 188);
+}
+
+.inp_p {
+    border: 2px solid red;
+}
+
+.inp {
+    border: 2px solid #4200FF;
+}
