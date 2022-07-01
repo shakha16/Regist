@@ -87,10 +87,10 @@ button {
     border: 2px solid rgb(0, 0, 188);
 }
 
-.inp_p {
-    border: 2px solid red;
+.input_error {
+    border: 5px solid red;
 }
 
 .inp {
-    border: 2px solid #4200FF;
+    border: 3px solid #4200FF;
 }

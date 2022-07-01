@@ -32,19 +32,19 @@ inpts_all.forEach(inpt => {
         num = 0
         min = 0
         inpts_all.forEach(item => {
-            if (item.value.length >= 4) {
-                item.classList.remove("inp_p")
+            if (item.value.length >= 5) {
+                item.classList.remove("input_error")
                 item.classList.add("inp")
                 btns.style.backgroundColor = "#4200FF"
-                btns.style.border = "2px solid #4200FF"
+                btns.style.border = "3px dashed #4200FF"
                 btns.style.color = "white"
                 num++
                 goods.innerHTML = num
             } else {
                 item.classList.remove("inp")
-                item.classList.add("inp_p")
+                item.classList.add("input_error")
                 btns.style.backgroundColor = "red"
-                btns.style.border = "2px solid #4200FF"
+                btns.style.border = "5px solid #4200FF"
                 btns.style.color = "white"
                 min++
                 bads.innerHTML = min
