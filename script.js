@@ -12,7 +12,7 @@ let inpts_right = right.querySelectorAll('input')
 let text_right = right.querySelectorAll('span')
 inpts_all.push(...inpts_left, ...inpts_right)
 texts_all.push(...text_left, ...text_right)
-let num = []
+let max = []
 let min = []
 let pattern = {
     name: /^[a-z ,.'-]+$/i,
@@ -29,7 +29,7 @@ function validate(field, regex) {
 }
 inpts_all.forEach(inpt => {
     btns.onclick = () => {
-        num = 0
+        max = 0
         min = 0
         inpts_all.forEach(item => {
             if (item.value.length >= 5) {
@@ -38,8 +38,8 @@ inpts_all.forEach(inpt => {
                 btns.style.backgroundColor = "#4200FF"
                 btns.style.border = "3px dashed #4200FF"
                 btns.style.color = "white"
-                num++
-                goods.innerHTML = num
+                max++
+                goods.innerHTML = max
             } else {
                 item.classList.remove("inp")
                 item.classList.add("input_error")
