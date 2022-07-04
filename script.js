@@ -1,56 +1,84 @@
-let goods = document.querySelector('.good')
-let bads = document.querySelector('.bad')
-let father = document.querySelector('.father')
-let btns = document.querySelector('button')
-let inpts_all = []
-let texts_all = []
-let left = father.querySelector('.left')
-let inpts_left = left.querySelectorAll('input')
-let text_left = left.querySelectorAll('span')
-let right = father.querySelector('.right')
-let inpts_right = right.querySelectorAll('input')
-let text_right = right.querySelectorAll('span')
-inpts_all.push(...inpts_left, ...inpts_right)
-texts_all.push(...text_left, ...text_right)
-let max = []
-let min = []
+let inps = document.querySelectorAll('.input');
+let succes = document.querySelector('.succes');
+let error = document.querySelector('.error');
+let btn = document.querySelector('button')
+let anim = document.querySelector('.animat')
+let big = document.querySelector('.container')
+let spn = document.querySelector('span')
+let form = document.forms.register
+
 let pattern = {
-    name: /^[a-z ,.'-]+$/i,
-    surname: /^[0-9\-\+]{9,15}$/,
-    phone: /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/,
-    email: /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"/
-}
+    name: /^[a-z ,а-я ,.'-]+$/i,
+    surname: /^[a-z ,а-я ,.'-]+$/i,
+    MomName: /^[a-z ,а-я ,.'-]+$/i,
+    PapName: /^[a-z ,а-я ,.'-]+$/i,
+    Ayou: /^[a-z ,а-я ,.'-]+$/i,
+    js: /^[a-z ,а-я ,.'-]+$/i,
+    html: /^[a-z ,а-я ,.'-]+$/i,
+    css: /^[a-z ,а-я ,.'-]+$/i,
+    car: /^[a-z ,а-я ,.'-]+$/i,
+    phone: /^998(9[012345789]|6[125679]|7[01234569])[0-9]{7}$/,
+    email: /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g,
+    password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm,
+    age: /^\S[0-9]{0,3}$/
+};
+
 function validate(field, regex) {
-    if(regex.test(field.value)) {
-        field.style.borderColor = "green"
+    if (regex.test(field.value)) {
+        field.classList.add('valid')
+        field.classList.remove('invalid')
+        field.previousSibling.previousSibling.style.color = "#4200FF"
+        spn.style.color = "white"
     } else {
-        field.style.borderColor = "red"
+        field.classList.add('invalid')
+        field.classList.remove('valid')
+        field.previousSibling.previousSibling.style.color = "red"
+        spn.style.color = "red"
     }
 }
-inpts_all.forEach(inpt => {
-    btns.onclick = () => {
-        max = 0
-        min = 0
-        inpts_all.forEach(item => {
-            if (item.value.length >= 5) {
-                item.classList.remove("input_error")
-                item.classList.add("inp")
-                btns.style.backgroundColor = "#4200FF"
-                btns.style.border = "3px dashed #4200FF"
-                btns.style.color = "white"
-                max++
-                goods.innerHTML = max
-            } else {
-                item.classList.remove("inp")
-                item.classList.add("input_error")
-                btns.style.backgroundColor = "red"
-                btns.style.border = "5px solid #4200FF"
-                btns.style.color = "white"
-                min++
-                bads.innerHTML = min
-            }
-        })
+
+inps.forEach(inp => {
+    inp.onkeyup = () => {
+        let key = inp.name
+
+        validate(inp, pattern[key])
     }
 })
 
+form.onsubmit = (event) => {
+    event.preventDefault()
 
+    let count = 0
+
+    inps.forEach(inp => {
+        if (inp.value.length === 0 || inp.classList.contains('invalid')) {
+            count++
+            inp.classList.add('invalid')
+        }
+    })
+    error.innerHTML = count
+    succes.innerHTML = 12 - count
+    if (count > 0) {
+        console.log('Запишите свои данные!');
+    } else {
+        submit()
+    }
+}
+
+function submit() {
+    let user = {}
+
+    let fm = new FormData(form)
+
+    fm.forEach((value, key) => {
+        user[key] = value
+    })
+
+    console.log(user);
+}
+
+
+btn.onclick = () => {
+    anim.style.display = "inline"
+    big.style.display = "none"
+}

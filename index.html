@@ -4,64 +4,95 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
 </head>
 <body>
-    <div class="alll">
-        <span class="header_one">Example form</span><br>
-        <span class="header_two">Vsego: 15</span>
-        <span class="header_t">Nado: 12</span>
-        <span class="header_t">Pravilno</span>
-        <span class="good header_t"></span>
-        <span class="header_t"> Ne pravilno</span>
-        <span class="bad header_t"></span>
-    </div>
-    <form>
-        <div class="father">
-            <div class="left">
-                <p>Name</p>
-                <input type="text" required minlength="4">
-                <span>Fill the gaps</span>
-                <p>Surname</p>
-                <input type="text" required minlength="4">
-                <span>Fill the gaps</span>
-                <p>Email adress</p>
-                <input type="email" required minlength="4">
-                <span>Fill the gaps</span>
-                <p>Phone number</p>
-                <input type="number" required minlength="4">
-                <span>Fill the gaps</span>
-                <p>Your Mom's name</p>
-                <input type="text" required minlength="4">
-                <span>Fill the gaps</span>
-                <p>Your Pap's name</p>
-                <input type="text" requiredminlength="4">
-                <span>Fill the gaps</span>
+    <div class="container">
+        <h1>Example form</h1>
+        <div class="bottom">
+            <p>all: 12</p>
+            <p>need: 7</p>
+            <p>succes: <p class="succes">0</p></p>
+            <p>error: <p class="error">0</p></p>
+        </div>
+        <form class="table" name="register">
+            <div class="item">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="input">
+                <span class="spafor">Please enter your name</span>
             </div>
-            <div class="right">
-                <p>Age</p>
-                <input type="number" required minlength="4">
-                <span>Fill the gaps</span>
-                <p>About You</p>
-                <input type="text" required minlength="4">
-                <span>Fill the gaps</span>
-                <p>What is JavaScript?</p>
-                <input type="text" required minlength="4">
-                <span>Fill the gaps</span>
-                <p>What is HTML?</p>
-                <input type="text" required minlength="4">
-                <span>Fill the gaps</span>
-                <p>What is CSS?</p>
-                <input type="text" required minlength="4">
-                <span>Fill the gaps</span>
-                <p>Your favourite car</p>
-                <input type="text" required minlength="4">
-                <span>Fill the gaps</span>
+            <div class="item">
+                <label for="age">Age</label>
+                <input type="text" id="age" name="age" class="input">
+                <span class="spanfor">Please enter your age</span>
+            </div>
+            <div class="item">
+                <label for="surname">Surname</label>
+                <input type="text" id="surname" name="surname">
+            </div>
+            <div class="item">
+                <label for="about">About you</label>
+                <input type="text" id="about" name="Ayou" class="input">
+                <span class="spanfor">Please enter your self</span>
+            </div>
+            <div class="item">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" class="input">
+                <span class="spanfor">Please enter your email</span>
+            </div>
+            <div class="item">
+                <label for="java">What is JavaScript?</label>
+                <input type="text" id="java" name="js" class="input">
+                <span class="spanfor">Please enter what's js </span>
+            </div>
+            <div class="item">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone">
+            </div>
+            <div class="item">
+                <label for="html">What is HTML?</label>
+                <input type="text" id="html" name="html" class="input">
+                <span class="spanfor">Please enter what's html</span>
+            </div>
+            <div class="item">
+                <label for="mname">Your Mom’s name</label>
+                <input type="text" id="mname" name="MomName">
+            </div>
+            <div class="item">
+                <label for="css">What is CSS?</label>
+                <input type="text" id="css" name="css" class="input">
+                <span class="spanfor">Please enter wat's css</span>
+            </div>
+            <div class="item">
+                <label for="pname">Your Pap’s name</label>
+                <input type="text" id="pname" name="PapName">
+            </div>
+            <div class="item">
+                <label for="car">Your favourite car</label>
+                <input type="text" id="car" name="car">
+            </div>
+            <center>
+                <button>Save Changes</button>
+            </center>
+        </form>
+    </div>
+    <div class="animat">
+        <div class="sty">
+            <div class="lds-default">
+                <div></div>   <div></div>
+                <div></div>   <div></div>
+                <div></div>   <div></div>
+                <div></div>   <div></div>
+                <div></div>   <div></div>
+                <div></div>   <div></div>
             </div>
         </div>
-        <button>Save changes</button>
-    </form>
-    <script src="./script.js"></script>
+    </div>
+
+
+
+    <script src="index.js"></script>
 </body>
+
 </html>
